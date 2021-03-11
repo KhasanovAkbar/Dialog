@@ -52,11 +52,6 @@ class MainActivity : AppCompatActivity() {
         fragment_dialog.setOnClickListener {
             val beginTransaction = supportFragmentManager.beginTransaction()
             val myDialogFragment = MyDialogFragment.newInstance("Dialog1", "Dialog2")
-            val root = layoutInflater.inflate(R.layout.fragment_my_dialog, null, false)
-            root.cancel_btn.setOnClickListener {
-                Toast.makeText(this, "Canceled", Toast.LENGTH_SHORT).show()
-            }
-
             myDialogFragment.show(beginTransaction, "dialog1")
 
         }

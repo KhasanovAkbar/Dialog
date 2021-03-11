@@ -20,6 +20,7 @@
         android:background="#03A9F4" />
 
     <EditText
+        android:id="@+id/et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -35,6 +36,8 @@
         android:orientation="horizontal">
 
         <LinearLayout
+            android:clickable="true"
+            android:focusable="true"
             android:id="@+id/cancel_btn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

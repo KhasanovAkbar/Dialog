@@ -4,8 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.fragment_my_dialog.*
+import kotlinx.android.synthetic.main.fragment_my_dialog.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,13 +32,24 @@ class MyDialogFragment : DialogFragment() {
             param2 = it.getString(ARG_PARAM2)
         }
     }
-
+    lateinit var root: View
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_my_dialog, container, false)
+        root = inflater.inflate(R.layout.fragment_my_dialog, container, false)
+        root.cancel_btn.setOnClickListener {
+            Toast.makeText(context, "Cancel", Toast.LENGTH_SHORT).show()
+            dismiss()
+        }
+
+        root.continue_btn.setOnClickListener {
+            Toast.makeText(context, "${et.text}", Toast.LENGTH_SHORT).show()
+            dismiss()
+        }
+
+        return root
     }
 
     companion object {
